@@ -1,0 +1,185 @@
+/* Color Palette & Base */
+:root {
+    --dark-bg: #1a1a1a; /* Very dark charcoal/black */
+    --gold-accent: #daa520; /* Gold from the image */
+    --text-white: #ffffff;
+    --text-light-grey: #e0e0e0;
+    --glass-bg-alpha: 0.1; /* Slightly lower alpha for glass on dark */
+    --glass-border-alpha: 0.1;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --blur-strength: 8px;
+}
+
+/* General Body & Container Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--dark-bg); /* Solid dark background */
+    margin: 0;
+    color: var(--text-white);
+}
+
+.container {
+    background: rgba(255, 255, 255, var(--glass-bg-alpha)); /* Glassmorphism effect */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    backdrop-filter: blur(var(--blur-strength));
+    -webkit-backdrop-filter: blur(var(--blur-strength));
+    border: 1px solid rgba(255, 255, 255, var(--glass-border-alpha));
+    padding: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 550px;
+    transition: all 0.6s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    color: var(--gold-accent);
+    margin-bottom: 30px;
+    font-weight: 700; /* Bolder heading */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: fadeIn 0.5s ease-out;
+}
+
+p {
+    color: var(--text-light-grey);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Star Rating Styling */
+.stars {
+    display: inline-block;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 50px;
+    color: var(--text-light-grey); /* Lighter grey default */
+    margin: 0 5px;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-out;
+    display: inline-block;
+}
+
+.star.selected,
+.star:hover {
+    color: var(--gold-accent);
+    transform: scale(1.1);
+}
+
+/* Staff List Styling */
+.staff-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.staff-item {
+    background: rgba(255, 255, 255, 0.08); /* Slightly visible glass effect for items */
+    margin-bottom: 15px;
+    padding: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out, box-shadow 0.3s ease-in-out;
+    font-weight: 600;
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.staff-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+/* Buttons */
+button {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg); /* Dark text on gold button */
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 30px;
+    font-weight: 700;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(218, 165, 32, 0.3); /* Goldish shadow */
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #e0ac2c; /* Slightly darker gold on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(218, 165, 32, 0.4);
+}
+
+/* Remarks Section */
+#remarksSection {
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05); /* Very subtle background for input */
+    color: var(--text-white);
+    font-size: 16px;
+    resize: vertical;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+textarea::placeholder {
+    color: var(--text-light-grey);
+    opacity: 0.7;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--gold-accent);
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2);
+}
+
+/* Final Message */
+#finalMessage {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold-accent); /* Gold for success message */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Dynamic Text Highlighting */
+.highlight-gold {
+    color: var(--gold-accent);
+    font-weight: 700;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
