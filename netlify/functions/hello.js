@@ -1,5 +1,5 @@
 import { GoogleAuth } from 'google-auth-library';
-import axios from 'axios';
+
 
 export const handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
@@ -43,17 +43,19 @@ export const handler = async (event, context) => {
 
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/July!A1:append?valueInputOption=USER_ENTERED`;
 
-    const response = await axios.post(
-      url,
-      {
-        values: [data],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken.token}`,
-        },
-      }
-    );
+   const response = await fetch(
+  `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/July!A1:append?valueInputOption=USER_ENTERED`,
+  {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken.token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ values: [data] }),
+  }
+);
+
+    const result = await response.json();
 
     return {
       statusCode: 200,
