@@ -4,9 +4,8 @@
 
 [functions]
   directory = "netlify/functions"
-
-[build.environment]
-  NODE_VERSION = "20"
+  node_bundler = "esbuild"
+  included_files = ["package.json"]
   
 [[redirects]]
   from = "/*"
