@@ -1,7 +1,7 @@
 // npm install googleapis
-import { google } from 'googleapis';
+const { google } = require('googleapis');
 
-export const handler  = async (event, context) => {
+exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
