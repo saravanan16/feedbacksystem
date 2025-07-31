@@ -1,12 +1,15 @@
-# React + Vite
+# Feedback Management System
+A simple and lightweight React application for collecting customer feedback and saving it directly to a Google Sheet in real-time. This project provides a clean user interface for rating and submitting remarks, making it easy to gather user input without a complex database backend.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Note: Replace the image link above with a screenshot of your actual application!
 
-Currently, two official plugins are available:
+✨ Features
+Star Rating System: Allows users to provide a rating from 1 to 5 stars.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Text Remarks: An optional text area for users to provide detailed feedback.
 
-## Expanding the ESLint configuration
+Direct to Google Sheets: Submissions are sent directly to a specified Google Sheet, acting as a simple, no-code database.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Asynchronous Submission: Features a disabled state and a loader on the submit button to prevent duplicate entries while data is being saved.
+
+Simple UI: Clean and straightforward interface built with React.
