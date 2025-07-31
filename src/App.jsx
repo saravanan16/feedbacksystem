@@ -9,7 +9,7 @@ import ThankYouMessage from "./components/ThankYouMessage";
 const STAFF_STORAGE_KEY = "mck_staffList";
 
 // Default staff list to populate if local storage is empty
-const DEFAULT_STAFF = ["Usman", "Deepak", "Rashid", "Raza", "Danish"];
+const DEFAULT_STAFF = ["Usman", "Rizvan", "Rashid", "Raza", "Danish","Monish"];
 
 function App() {
   const [page, setPage] = useState("rating"); // 'rating', 'staff', 'remarks', 'thankyou'

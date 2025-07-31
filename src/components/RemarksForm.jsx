@@ -1,22 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
+import "../../src/RemarksForm.css"; // Import the CSS file
 
 const RemarksForm = ({ rating, staff, onSubmit }) => {
   const [remarks, setRemarks] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
+
   const textAreaRef = useRef(null);
 
-  // Focus the textarea when the component mounts
   useEffect(() => {
     textAreaRef.current?.focus();
   }, []);
 
-  const handleSubmit = () => {
-    onSubmit(remarks);
+  const handleSubmit = async () => {
+    setIsDisabled(true);
+    try {
+      await onSubmit(remarks);
+    } catch (error) {
+      console.error("Submission failed:", error);
+    } finally {
+      setIsDisabled(false);
+    }
   };
-
-
-  
-
-  // ... (the rest of your App.js code remains the same)
 
   return (
     <>
@@ -36,7 +40,16 @@ const RemarksForm = ({ rating, staff, onSubmit }) => {
           placeholder="Optional: Tell us more about your experience..."
         ></textarea>
       </div>
-      <button onClick={handleSubmit}>Submit Feedback</button>
+      <button onClick={handleSubmit} disabled={isDisabled}>
+        {isDisabled ? (
+          <>
+            <div className="loader"></div>
+            Submitting...
+          </>
+        ) : (
+          "Submit Feedback"
+        )}
+      </button>
     </>
   );
 };
